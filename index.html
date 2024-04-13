@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game | Suit</title>
+  </head>
+  <body>
+    <script>
+      // menangkap pilihan komputer
+      // membangkitkan bilangan random
+      let comp = Math.random();
+
+      if (comp < 0.34) {
+        comp = 'gajah';
+      } else if (comp >= 0.34 && comp < 0.67) {
+        comp = 'orang';
+      } else {
+        comp = 'semut';
+      }
+
+      // menentukan rules
+      let nanya = confirm('Mau maen game suit gak sab?');
+      while (nanya) {
+        // menangkap pilihan player
+        let p = prompt('pilih: gajah, semut, orang');
+
+        if (p == 'gajah' || p == 'semut' || p == 'orang') {
+          if (p == comp) {
+            hasil = 'Seri!';
+          } else if (p == 'gajah') {
+            if (comp == 'orang') {
+              hasil = 'Lu menang, keren';
+            }
+            if (comp == 'semut') {
+              hasil = 'Lu kalah, hahaha gblk';
+            }
+          } else if (p == 'orang') {
+            if (comp == 'gajah') {
+              hasil = 'Lu kalah, hahaha gblk';
+            }
+            if (comp == 'semut') {
+              hasil = 'Lu menang, keren';
+            }
+          } else if (p == 'semut') {
+            if (comp == 'gajah') {
+              hasil = 'Lu kalah, hahaha gblk';
+            }
+            if (comp == 'orang') {
+              hasil = 'Lu menang, keren';
+            }
+          }
+
+          //tampilkan hasilnya
+          alert(`Kamu pilih : ${p} \n Fikri pilih : ${comp} \n Maka hasilnya : ${hasil}`);
+        } else {
+          alert('pilihannya cuman gajah, semut sama orang aja ya, goblok');
+        }
+
+        nanya = confirm('Lagi gak?');
+      }
+
+      alert('makasih');
+    </script>
+  </body>
+</html>
